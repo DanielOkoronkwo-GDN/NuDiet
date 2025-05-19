@@ -9,6 +9,8 @@ SPM Packages:
 - Kingfisher for UI image caching and handling
 - Switch Composable architecture
 Nice to have: Network connection management, summarized filter UI at the top of screen, unit testing and some accessibility.
+
+
 | Home | Filter|
 | --- | --- |
 |![Simulator Screenshot - iPhone 16 Pro - 2025-05-19 at 09 40 49](https://github.com/user-attachments/assets/a4986807-1e8a-45b8-8900-e8e803c1acda)|![Simulator Screenshot - iPhone 16 Pro - 2025-05-19 at 09 40 52](https://github.com/user-attachments/assets/bfee3613-496a-45f6-9427-6ed0aab992b3)|
