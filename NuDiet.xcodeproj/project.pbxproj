@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2B366BD22DD66ECB0090FAF0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B366BD12DD66ECB0090FAF0 /* ComposableArchitecture */; };
+		2BE7E1002DDA5F17001066DA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE7E0FF2DDA5F17001066DA /* Kingfisher */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2B3669B22DD4C6890090FAF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B3669992DD4C6860090FAF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B3669A02DD4C6860090FAF0;
+			remoteInfo = NuDiet;
+		};
+		2B3669BC2DD4C6890090FAF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2B3669992DD4C6860090FAF0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2B3669A02DD4C6860090FAF0;
+			remoteInfo = NuDiet;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2B3669A12DD4C6860090FAF0 /* NuDiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NuDiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B3669B12DD4C6890090FAF0 /* NuDietTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NuDietTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B3669BB2DD4C6890090FAF0 /* NuDietUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NuDietUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2BD79BCD2DDA72F500DF840F /* Exceptions for "NuDiet" folder in "NuDiet" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 2B3669A02DD4C6860090FAF0 /* NuDiet */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2B3669B42DD4C6890090FAF0 /* NuDietTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NuDietTests;
+			sourceTree = "<group>";
+		};
+		2B3669BE2DD4C6890090FAF0 /* NuDietUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = NuDietUITests;
+			sourceTree = "<group>";
+		};
+		2B366C2E2DD718EB0090FAF0 /* NuDiet */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2BD79BCD2DDA72F500DF840F /* Exceptions for "NuDiet" folder in "NuDiet" target */,
+			);
+			path = NuDiet;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2B36699E2DD4C6860090FAF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BE7E1002DDA5F17001066DA /* Kingfisher in Frameworks */,
+				2B366BD22DD66ECB0090FAF0 /* ComposableArchitecture in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B3669AE2DD4C6890090FAF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B3669B82DD4C6890090FAF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2B3669982DD4C6860090FAF0 = {
+			isa = PBXGroup;
+			children = (
+				2B366C2E2DD718EB0090FAF0 /* NuDiet */,
+				2B3669B42DD4C6890090FAF0 /* NuDietTests */,
+				2B3669BE2DD4C6890090FAF0 /* NuDietUITests */,
+				2B3669A22DD4C6860090FAF0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2B3669A22DD4C6860090FAF0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B3669A12DD4C6860090FAF0 /* NuDiet.app */,
+				2B3669B12DD4C6890090FAF0 /* NuDietTests.xctest */,
+				2B3669BB2DD4C6890090FAF0 /* NuDietUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2B3669A02DD4C6860090FAF0 /* NuDiet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B3669C52DD4C6890090FAF0 /* Build configuration list for PBXNativeTarget "NuDiet" */;
+			buildPhases = (
+				2B36699D2DD4C6860090FAF0 /* Sources */,
+				2B36699E2DD4C6860090FAF0 /* Frameworks */,
+				2B36699F2DD4C6860090FAF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				2B366C2E2DD718EB0090FAF0 /* NuDiet */,
+			);
+			name = NuDiet;
+			packageProductDependencies = (
+				2B366BD12DD66ECB0090FAF0 /* ComposableArchitecture */,
+				2BE7E0FF2DDA5F17001066DA /* Kingfisher */,
+			);
+			productName = NuDiet;
+			productReference = 2B3669A12DD4C6860090FAF0 /* NuDiet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2B3669B02DD4C6890090FAF0 /* NuDietTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B3669C82DD4C6890090FAF0 /* Build configuration list for PBXNativeTarget "NuDietTests" */;
+			buildPhases = (
+				2B3669AD2DD4C6890090FAF0 /* Sources */,
+				2B3669AE2DD4C6890090FAF0 /* Frameworks */,
+				2B3669AF2DD4C6890090FAF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B3669B32DD4C6890090FAF0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2B3669B42DD4C6890090FAF0 /* NuDietTests */,
+			);
+			name = NuDietTests;
+			packageProductDependencies = (
+			);
+			productName = NuDietTests;
+			productReference = 2B3669B12DD4C6890090FAF0 /* NuDietTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2B3669BA2DD4C6890090FAF0 /* NuDietUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2B3669CB2DD4C6890090FAF0 /* Build configuration list for PBXNativeTarget "NuDietUITests" */;
+			buildPhases = (
+				2B3669B72DD4C6890090FAF0 /* Sources */,
+				2B3669B82DD4C6890090FAF0 /* Frameworks */,
+				2B3669B92DD4C6890090FAF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2B3669BD2DD4C6890090FAF0 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2B3669BE2DD4C6890090FAF0 /* NuDietUITests */,
+			);
+			name = NuDietUITests;
+			packageProductDependencies = (
+			);
+			productName = NuDietUITests;
+			productReference = 2B3669BB2DD4C6890090FAF0 /* NuDietUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2B3669992DD4C6860090FAF0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1620;
+				TargetAttributes = {
+					2B3669A02DD4C6860090FAF0 = {
+						CreatedOnToolsVersion = 16.2;
+					};
+					2B3669B02DD4C6890090FAF0 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 2B3669A02DD4C6860090FAF0;
+					};
+					2B3669BA2DD4C6890090FAF0 = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 2B3669A02DD4C6860090FAF0;
+					};
+				};
+			};
+			buildConfigurationList = 2B36699C2DD4C6860090FAF0 /* Build configuration list for PBXProject "NuDiet" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2B3669982DD4C6860090FAF0;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2B366BD02DD66ECB0090FAF0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				2BE7E0FE2DDA5F17001066DA /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 2B3669A22DD4C6860090FAF0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2B3669A02DD4C6860090FAF0 /* NuDiet */,
+				2B3669B02DD4C6890090FAF0 /* NuDietTests */,
+				2B3669BA2DD4C6890090FAF0 /* NuDietUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2B36699F2DD4C6860090FAF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B3669AF2DD4C6890090FAF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B3669B92DD4C6890090FAF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2B36699D2DD4C6860090FAF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B3669AD2DD4C6890090FAF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2B3669B72DD4C6890090FAF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2B3669B32DD4C6890090FAF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B3669A02DD4C6860090FAF0 /* NuDiet */;
+			targetProxy = 2B3669B22DD4C6890090FAF0 /* PBXContainerItemProxy */;
+		};
+		2B3669BD2DD4C6890090FAF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2B3669A02DD4C6860090FAF0 /* NuDiet */;
+			targetProxy = 2B3669BC2DD4C6890090FAF0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2B3669C32DD4C6890090FAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2B3669C42DD4C6890090FAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2B3669C62DD4C6890090FAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NuDiet/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NuDiet/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danokoronkwo.appdaily.NuDiet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2B3669C72DD4C6890090FAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"NuDiet/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = NuDiet/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danokoronkwo.appdaily.NuDiet;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2B3669C92DD4C6890090FAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danokoronkwo.appdaily.NuDietTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NuDiet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NuDiet";
+			};
+			name = Debug;
+		};
+		2B3669CA2DD4C6890090FAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danokoronkwo.appdaily.NuDietTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NuDiet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NuDiet";
+			};
+			name = Release;
+		};
+		2B3669CC2DD4C6890090FAF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danokoronkwo.appdaily.NuDietUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NuDiet;
+			};
+			name = Debug;
+		};
+		2B3669CD2DD4C6890090FAF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.danokoronkwo.appdaily.NuDietUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = NuDiet;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2B36699C2DD4C6860090FAF0 /* Build configuration list for PBXProject "NuDiet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B3669C32DD4C6890090FAF0 /* Debug */,
+				2B3669C42DD4C6890090FAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B3669C52DD4C6890090FAF0 /* Build configuration list for PBXNativeTarget "NuDiet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B3669C62DD4C6890090FAF0 /* Debug */,
+				2B3669C72DD4C6890090FAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B3669C82DD4C6890090FAF0 /* Build configuration list for PBXNativeTarget "NuDietTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B3669C92DD4C6890090FAF0 /* Debug */,
+				2B3669CA2DD4C6890090FAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2B3669CB2DD4C6890090FAF0 /* Build configuration list for PBXNativeTarget "NuDietUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2B3669CC2DD4C6890090FAF0 /* Debug */,
+				2B3669CD2DD4C6890090FAF0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2B366BD02DD66ECB0090FAF0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.19.1;
+			};
+		};
+		2BE7E0FE2DDA5F17001066DA /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.3.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2B366BD12DD66ECB0090FAF0 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B366BD02DD66ECB0090FAF0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		2BE7E0FF2DDA5F17001066DA /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2BE7E0FE2DDA5F17001066DA /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2B3669992DD4C6860090FAF0 /* Project object */;
+}
