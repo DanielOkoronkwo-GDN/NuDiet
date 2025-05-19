@@ -49,7 +49,7 @@ struct HomeView: View {
                     Image(systemName: "line.3.horizontal.decrease.circle")
                 }
             }.sheet(isPresented: $showFilter) {
-                FilterView()
+                FilterView(store: store)
                     .presentationDetents([.fraction(0.44)])
             }.navigationBarTitleDisplayMode(.inline)
             

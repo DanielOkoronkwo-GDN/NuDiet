@@ -25,12 +25,15 @@ struct RecipeListView: View {
         WithPerceptionTracking {
             ScrollView {
                 VStack {
-                    LazyVGrid(columns: columns, spacing: 16) {
-                        ForEach(store.items) { recipe in
-                            view(for: recipe)
+                    if store.items.isEmpty {
+                        Text("No recipes available")
+                    } else {
+                        LazyVGrid(columns: columns, spacing: 16) {
+                            ForEach(store.items) { recipe in
+                                view(for: recipe)
+                            }
                         }
                     }
-                    
                 }
             }.onAppear {
                 store.send(.start)
