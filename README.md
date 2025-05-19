@@ -5,6 +5,9 @@ To enhance the architecture and user experience, integrating SwiftData alongside
 
 Note: As not all recipes may be retrieved initially, certain filter combinations may yield partial results until the complete dataset is available.
 
+SPM Packages: 
+- Kingfisher for UI image caching and handling
+- Switch Composable architecture
 Nice to have: Network connection management, summarized filter UI at the top of screen, unit testing and some accessibility.
 | Home | Filter|
 | --- | --- |
