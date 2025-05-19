@@ -10,18 +10,21 @@ import ComposableArchitecture
 
 @Reducer
 struct RecipeListDomain {
+    
     @ObservableState
     struct State: Equatable {
         var items: [Recipe] = []
+        var allItems: [Recipe] = [] // Source of truth for all fetched data
         var currentPage = 1
         var pageSize = 5
         var isLoading = false
         var hasMorePages = true
         var selectedRecipe: Recipe?
         var errorMessage: String?
+        
+        var filterModel: FilterModel = FilterModel()
     }
     
-    // Response wrapper to handle both success and failure scenarios
     enum RecipeListResponse: Equatable {
         case success(PaginatedResponse)
         case failure(String)
@@ -36,23 +39,54 @@ struct RecipeListDomain {
         case fetchResponse(RecipeListResponse)
         case card(recipe: Recipe, action: RecipeCardDomain.Action)
         case clearSelection
+        
+        case clearFilter
+        case applyFilter
+        case updateRating(rating: Double)
     }
     
-    // User or system-triggered actions handled by the reducer
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
+        
+        func applyFilter(recipes: [Recipe]) -> [Recipe] {
+            let selectedDifficulty = state.filterModel.difficultyLevels
+                .filter { $0.isSelected }
+                .map { $0.difficulty.rawValue.capitalized }
+
+            return recipes.filter { recipe in
+                // Difficulty matching (default to Easy if missing)
+                let difficultyMatches = selectedDifficulty.isEmpty ||
+                    selectedDifficulty.contains(recipe.difficulty?.capitalized ?? "Easy")
+                
+                // Rating filtering
+                let ratingFilter = state.filterModel.rating
+                let ratingMatches: Bool
+                if ratingFilter.isActive,
+                   let filterValue = ratingFilter.value,
+                   let recipeRating = recipe.rating {
+                    ratingMatches = recipeRating <= filterValue
+                } else {
+                    ratingMatches = true
+                }
+
+                return difficultyMatches && ratingMatches
+            }
+        }
+        
+        func clearFilters(state: inout State) {
+            state.filterModel = FilterModel()
+            state.items = applyFilter(recipes: state.allItems)
+        }
+        
         switch action {
             
         case .start:
-            // Start loading recipes only if the list is currently empty
             guard state.items.isEmpty else { return .none }
             return .send(.fetchNextPage)
             
         case .didScrollToBottom:
-            // Trigger next page load when user scrolls to bottom
             return .send(.fetchNextPage)
             
         case .fetchNextPage:
-            // Prevent duplicate loads or loading past the final page
             guard !state.isLoading, state.hasMorePages else { return .none }
             state.isLoading = true
             state.errorMessage = nil
@@ -66,15 +100,14 @@ struct RecipeListDomain {
             }
             
         case let .fetchResponse(.success(response)):
-            // Append new recipes to the existing list and update pagination info
-            state.items.append(contentsOf: response.recipes)
+            state.allItems.append(contentsOf: response.recipes)
+            state.items = applyFilter(recipes: state.allItems)
             state.currentPage += 1
             state.hasMorePages = response.currentPage < response.totalPages
             state.isLoading = false
             return .none
             
         case let .fetchResponse(.failure(errorMessage)):
-            // Handle fetch error by showing message and stopping loading
             state.isLoading = false
             state.errorMessage = errorMessage
             print("Error: \(errorMessage)")
@@ -83,8 +116,24 @@ struct RecipeListDomain {
         case let .card(recipe, .recipeTapped):
             state.selectedRecipe = recipe
             return .none
+            
         case .clearSelection:
             state.selectedRecipe = nil
+            return .none
+            
+        case .applyFilter:
+            state.items = applyFilter(recipes: state.allItems)
+            return .none
+            
+        case .clearFilter:
+            let allItemsCopy = state.allItems
+            state.filterModel = FilterModel()
+            state.items = applyFilter(recipes: allItemsCopy)
+            return .none
+            
+        case .updateRating(let rating):
+            state.filterModel.rating = RatingModel(isActive: true, value: rating)
+            state.items = applyFilter(recipes: state.allItems)
             return .none
         }
     }

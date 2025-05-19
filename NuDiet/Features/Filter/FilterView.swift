@@ -6,21 +6,32 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct FilterView: View {
+        
+    @State private var isEditing = false
+    @State private var rating: Double = 0.0
     
     @Environment(\.dismiss) var dismiss
-    @State var model = FilterModel()
+    
+    private let store: StoreOf<RecipeListDomain>
+    
+    public init(store: StoreOf<RecipeListDomain>) {
+        self.store = store
+    }
     
     var body: some View {
-        NavigationStack {
-            components
-            .toolbar {
-                cancelButton
-            }
-            .toolbar {
-                ToolbarItemGroup(placement: .bottomBar) {
-                    bottomContainer
+        WithPerceptionTracking {
+            NavigationStack {
+                components
+                .toolbar {
+                    cancelButton
+                }
+                .toolbar {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        bottomContainer
+                    }
                 }
             }
         }
@@ -54,7 +65,7 @@ struct FilterView: View {
             .foregroundStyle(.gray)
             .fontWeight(.medium)
         HStack {
-            ForEach(model.difficultyLevels) { model in
+            ForEach(store.filterModel.difficultyLevels) { model in
                 DifficultyFilterView(model: model)
                     .frame(maxWidth: .infinity)
             }
@@ -79,6 +90,8 @@ struct FilterView: View {
         } maximumValueLabel: {
             Text("5")
                 .foregroundStyle(.gray)
+        }.onChange(of: rating) { _, newValue in
+            store.send(.updateRating(rating: newValue))
         }.tint(.blue.opacity(0.4))
     }
     
@@ -86,7 +99,7 @@ struct FilterView: View {
     var bottomContainer: some View {
         HStack {
             Button {
-                
+                store.send(.clearFilter)
             } label: {
                 Text("Clear")
                     .fontWeight(.bold)
@@ -102,7 +115,7 @@ struct FilterView: View {
             )
 
             Button {
-               
+                store.send(.applyFilter)
             } label: {
                 Text("Apply")
                     .fontWeight(.bold)
@@ -119,14 +132,20 @@ struct FilterView: View {
                     
         }
     }
-    
-    @State private var rating: Double = 0
-    @State private var isEditing = false
-    
 }
 
 #Preview {
-    FilterView()
+    FilterView(store: Store(
+        initialState: RecipeListDomain.State(
+            items: [Recipe.sampleOne, Recipe.sampleTwo],
+            currentPage: 2,
+            pageSize: 5,
+            isLoading: false,
+            hasMorePages: true
+        )
+    ) {
+        RecipeListDomain()
+    })
 }
 
 

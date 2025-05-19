@@ -8,13 +8,6 @@
 import Foundation
 import SwiftUI
 
-@Observable
-class FilterModel {
-    var difficultyLevels: [DifficultyModel] =  [DifficultyModel(isSelected: false, difficulty: .easy),
-                                                DifficultyModel(isSelected: false, difficulty: .medium),
-                                                DifficultyModel(isSelected: false, difficulty: .hard)]
-}
-
 enum difficultyLevel: String, CaseIterable {
     case easy, medium, hard
     
@@ -45,5 +38,38 @@ class DifficultyModel: Identifiable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(difficulty.rawValue)
         hasher.combine(isSelected)
+    }
+}
+
+@Observable
+class FilterModel: Equatable {
+    
+    var difficultyLevels: [DifficultyModel] = [
+        DifficultyModel(isSelected: false, difficulty: .easy),
+        DifficultyModel(isSelected: false, difficulty: .medium),
+        DifficultyModel(isSelected: false, difficulty: .hard)
+    ]
+    
+ 
+    var rating: RatingModel = RatingModel(isActive: false)
+    
+    static func == (lhs: FilterModel, rhs: FilterModel) -> Bool {
+        lhs.difficultyLevels == rhs.difficultyLevels &&
+        lhs.rating == rhs.rating
+    }
+}
+
+@Observable
+class RatingModel: Equatable {
+    var isActive: Bool
+    var value: Double?
+    
+    init(isActive: Bool, value: Double? = nil) {
+        self.isActive = isActive
+        self.value = value
+    }
+    
+    static func == (lhs: RatingModel, rhs: RatingModel) -> Bool {
+        lhs.value == rhs.value
     }
 }

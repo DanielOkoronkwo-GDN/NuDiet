@@ -24,6 +24,40 @@ struct Recipe: Identifiable, Equatable {
     let reviewCount: Int?
     let mealType: [String]?
     
+    init(
+        id: Int,
+        name: String,
+        ingredients: [String]? = nil,
+        instructions: [String]? = nil,
+        prepTimeMinutes: Int? = nil,
+        cookTimeMinutes: Int? = nil,
+        servings: Int? = nil,
+        difficulty: String? = nil,
+        cuisine: String? = nil,
+        caloriesPerServing: Double? = nil,
+        tags: [String]? = nil,
+        image: String? = nil,
+        rating: Double? = nil,
+        reviewCount: Int? = nil,
+        mealType: [String]? = nil
+    ) {
+        self.id = id
+        self.name = name
+        self.ingredients = ingredients
+        self.instructions = instructions
+        self.prepTimeMinutes = prepTimeMinutes
+        self.cookTimeMinutes = cookTimeMinutes
+        self.servings = servings
+        self.difficulty = difficulty
+        self.cuisine = cuisine
+        self.caloriesPerServing = caloriesPerServing
+        self.tags = tags
+        self.image = image
+        self.rating = rating
+        self.reviewCount = reviewCount
+        self.mealType = mealType
+    }
+    
     public static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
         lhs.id == rhs.id
     }

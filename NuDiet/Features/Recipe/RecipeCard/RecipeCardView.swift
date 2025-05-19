@@ -10,7 +10,11 @@ import ComposableArchitecture
 
 struct RecipeCardView: View {
     
-    let store: StoreOf<RecipeCardDomain>
+    private let store: StoreOf<RecipeCardDomain>
+    
+    public init(store: StoreOf<RecipeCardDomain>) {
+        self.store = store
+    }
     
     var body: some View {
         WithPerceptionTracking {
