@@ -1,10 +1,11 @@
 # NuDiet
 
-This attempts to implement a recipe app utilising the https://dummyjson.com/docs/recipes for an iOS app showing recipes in a grid. This was built on a partial knowledge of TCA architecture so a few items are missing implementation. i.e appropriate unit testing, filter by rating and difficulty, search functionality and accessibility at minimum.
+Architectural Enhancement: SwiftData + TCA Integration
+To enhance the architecture and user experience, we propose integrating SwiftData alongside The Composable Architecture (TCA). This approach enables efficient local filtering and lookup of recipes based on user-defined criteria such as tags and other filters.
 
-The decision here was to first implement fetching recipes appropriately using pagination. 
+Currently, the server provides a maximum of 50 recipes per response. To simplify the initial implementation, pagination will be deferred. Instead, all available recipes will be fetched in a single request and persisted locally using SwiftData. This allows us to leverage SwiftData’s predicate-based querying for fast, offline-capable filtering.
 
-Ideal: To use swiftdata along side TCA to improvement architecture further i.e. allow for quick look up of recipes based on filters and tags (with the caveat given whether or not user had reached the end of the recipes in total, some search operations would result in partial results, given server provides only 50 recipes at the moment, pagination can be skipped to a later date and we instead fetch all recipes at once, save to swiftdata and use predicates for filter operations).
+Note: As not all recipes may be retrieved initially, certain filter combinations may yield partial results until the complete dataset is available.
 
 | Home | Filter (Binding not implemented)|
 | --- | --- |
