@@ -27,6 +27,7 @@ struct RecipeListView: View {
                 VStack {
                     if store.items.isEmpty {
                         Text("No recipes available")
+                            .frame(maxWidth: .infinity, alignment: .center)
                     } else {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(store.items) { recipe in
