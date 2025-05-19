@@ -1,9 +1,7 @@
 # NuDiet
 
 ## Architectural Enhancement: SwiftData + TCA Integration
-To enhance the architecture and user experience, we propose integrating SwiftData alongside The Composable Architecture (TCA). This approach enables efficient local filtering and lookup of recipes based on user-defined criteria such as tags and other filters.
-
-Currently, the server provides a maximum of 50 recipes per response. To simplify the initial implementation, pagination will be deferred. Instead, all available recipes will be fetched in a single request and persisted locally using SwiftData. This allows us to leverage SwiftData’s predicate-based querying for fast, offline-capable filtering.
+To enhance the architecture and user experience, I propose integrating SwiftData alongside The Composable Architecture (TCA). This approach enables efficient local filtering and lookup of recipes based on user-defined criteria such as tags and other filters.
 
 Note: As not all recipes may be retrieved initially, certain filter combinations may yield partial results until the complete dataset is available.
 
