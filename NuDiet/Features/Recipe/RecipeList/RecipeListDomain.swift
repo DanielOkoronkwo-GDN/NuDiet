@@ -11,20 +11,22 @@ import ComposableArchitecture
 @Reducer
 struct RecipeListDomain {
     
+    /// State representing the UI and business logic for the recipe list
     @ObservableState
     struct State: Equatable {
-        var items: [Recipe] = []
-        var allItems: [Recipe] = [] // Source of truth for all fetched data
-        var currentPage = 1
-        var pageSize = 5
-        var isLoading = false
-        var hasMorePages = true
-        var selectedRecipe: Recipe?
-        var errorMessage: String?
+        var items: [Recipe] = []                // Filtered recipes to display
+        var allItems: [Recipe] = []             // All fetched recipes (unfiltered source of truth)
+        var currentPage = 1                     // Current page index for pagination
+        var pageSize = 5                        // Number of items per page
+        var isLoading = false                   // Whether a fetch operation is in progress
+        var hasMorePages = true                 // If there are more pages to fetch
+        var selectedRecipe: Recipe? = nil       // Currently selected recipe (for detail view)
+        var errorMessage: String? = nil         // Error message to show in UI
         
-        var filterModel: FilterModel = FilterModel()
+        var filterModel: FilterModel = FilterModel() // Model holding active filters (difficulty, rating)
     }
     
+    /// Enum to handle success/failure responses when fetching recipes
     enum RecipeListResponse: Equatable {
         case success(PaginatedResponse)
         case failure(String)
@@ -32,14 +34,16 @@ struct RecipeListDomain {
     
     @Dependency(\.apiClient) var apiClient
     
+    /// All supported user/system-triggered actions
     enum Action: Equatable {
-        case start
-        case didScrollToBottom
-        case fetchNextPage
-        case fetchResponse(RecipeListResponse)
-        case card(recipe: Recipe, action: RecipeCardDomain.Action)
-        case clearSelection
+        case start                        // Initial load
+        case didScrollToBottom           // User reached bottom of list
+        case fetchNextPage               // Load more data
+        case fetchResponse(RecipeListResponse) // Result of fetch
+        case card(recipe: Recipe, action: RecipeCardDomain.Action) // Card interaction
+        case clearSelection              // Deselect selected recipe
         
+        // Filter-related
         case clearFilter
         case applyFilter
         case updateRating(rating: Double)
@@ -47,15 +51,16 @@ struct RecipeListDomain {
     
     func reduce(into state: inout State, action: Action) -> Effect<Action> {
         
+        /// Applies the current filter model to the provided recipe list
         func applyFilter(recipes: [Recipe]) -> [Recipe] {
             let selectedDifficulty = state.filterModel.difficultyLevels
                 .filter { $0.isSelected }
                 .map { $0.difficulty.rawValue.capitalized }
-
+            
             return recipes.filter { recipe in
                 // Difficulty matching (default to Easy if missing)
                 let difficultyMatches = selectedDifficulty.isEmpty ||
-                    selectedDifficulty.contains(recipe.difficulty?.capitalized ?? "Easy")
+                selectedDifficulty.contains(recipe.difficulty?.capitalized ?? "Easy")
                 
                 // Rating filtering
                 let ratingFilter = state.filterModel.rating
@@ -67,7 +72,7 @@ struct RecipeListDomain {
                 } else {
                     ratingMatches = true
                 }
-
+                
                 return difficultyMatches && ratingMatches
             }
         }
@@ -110,7 +115,6 @@ struct RecipeListDomain {
         case let .fetchResponse(.failure(errorMessage)):
             state.isLoading = false
             state.errorMessage = errorMessage
-            print("Error: \(errorMessage)")
             return .none
             
         case let .card(recipe, .recipeTapped):

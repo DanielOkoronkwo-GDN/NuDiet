@@ -100,6 +100,7 @@ struct FilterView: View {
         HStack {
             Button {
                 store.send(.clearFilter)
+                dismiss()
             } label: {
                 Text("Clear")
                     .fontWeight(.bold)
