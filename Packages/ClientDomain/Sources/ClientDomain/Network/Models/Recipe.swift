@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Recipe: Identifiable, Equatable {
-    let id: Int
+public struct Recipe: Identifiable, Equatable, Sendable {
+    public let id: Int
     let name: String
     let ingredients: [String]?
     let instructions: [String]?
@@ -24,7 +24,7 @@ struct Recipe: Identifiable, Equatable {
     let reviewCount: Int?
     let mealType: [String]?
     
-    init(
+    public init(
         id: Int,
         name: String,
         ingredients: [String]? = nil,
@@ -84,7 +84,7 @@ extension Recipe: Decodable {
 }
 
 
-extension Recipe {
+public extension Recipe {
     
     static let sampleOne = Recipe(
         id: 1,

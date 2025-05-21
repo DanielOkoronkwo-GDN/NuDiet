@@ -9,25 +9,40 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct RecipeListDomain {
+public struct RecipeListDomain : Sendable {
+    
+    public init() {}
     
     /// State representing the UI and business logic for the recipe list
     @ObservableState
-    struct State: Equatable {
-        var items: [Recipe] = []                // Filtered recipes to display
+    public struct State: Equatable {
+
         var allItems: [Recipe] = []             // All fetched recipes (unfiltered source of truth)
         var currentPage = 1                     // Current page index for pagination
         var pageSize = 5                        // Number of items per page
         var isLoading = false                   // Whether a fetch operation is in progress
         var hasMorePages = true                 // If there are more pages to fetch
-        var selectedRecipe: Recipe? = nil       // Currently selected recipe (for detail view)
         var errorMessage: String? = nil         // Error message to show in UI
         
-        var filterModel: FilterModel = FilterModel() // Model holding active filters (difficulty, rating)
+        public var selectedRecipe: Recipe? = nil       // Currently selected recipe (for detail view)
+        public var items: [Recipe] = []                // Filtered recipes to display
+        public var filterModel: FilterModel = FilterModel() // Model holding active filters (difficulty, rating)
+        
+        public init(items: [Recipe] = [],
+                    currentPage: Int = 1,
+                    pageSize: Int = 5,
+                    isLoading: Bool = false,
+                    hasMorePages: Bool = true) {
+            self.items = items
+            self.currentPage = currentPage
+            self.pageSize = pageSize
+            self.isLoading = isLoading
+            self.hasMorePages = hasMorePages
+        }
     }
     
     /// Enum to handle success/failure responses when fetching recipes
-    enum RecipeListResponse: Equatable {
+    public enum RecipeListResponse: Equatable {
         case success(PaginatedResponse)
         case failure(String)
     }
@@ -35,7 +50,7 @@ struct RecipeListDomain {
     @Dependency(\.apiClient) var apiClient
     
     /// All supported user/system-triggered actions
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case start                        // Initial load
         case didScrollToBottom           // User reached bottom of list
         case fetchNextPage               // Load more data
@@ -49,7 +64,7 @@ struct RecipeListDomain {
         case updateRating(rating: Double)
     }
     
-    func reduce(into state: inout State, action: Action) -> Effect<Action> {
+    public func reduce(into state: inout State, action: Action) -> Effect<Action> {
         
         /// Applies the current filter model to the provided recipe list
         func applyFilter(recipes: [Recipe]) -> [Recipe] {

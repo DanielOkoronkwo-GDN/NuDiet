@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "F80BB124-E561-480B-A24E-FC5FB9FC29E3",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "ClientDomainTests",
+        "name" : "ClientDomainTests"
+      }
+    }
+  ],
+  "version" : 1
+}

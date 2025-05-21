@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import ClientDomain
 
 struct RecipeDetailView: View {
     
