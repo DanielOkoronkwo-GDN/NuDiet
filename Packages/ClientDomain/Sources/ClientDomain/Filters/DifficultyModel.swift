@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUICore
 
 /// Enum representing difficulty levels for a recipe or task.
 public enum difficultyLevel: String, CaseIterable {
