@@ -20,10 +20,10 @@ public struct RecipeListDomain : Sendable {
         var allItems: [Recipe] = []             // All fetched recipes (unfiltered source of truth)
         var currentPage: Int                     // Current page index for pagination
         var pageSize: Int                      // Number of items per page
-        var isLoading: Bool                   // Whether a fetch operation is in progress
         var hasMorePages: Bool                 // If there are more pages to fetch
         var errorMessage: String? = nil         // Error message to show in UI
         
+        public var isLoading: Bool                   // Whether a fetch operation is in progress
         public var selectedRecipe: Recipe? = nil       // Currently selected recipe (for detail view)
         public var items: [Recipe] = []                // Filtered recipes to display
         public var filterModel: FilterModel = FilterModel() // Model holding active filters (difficulty, rating)

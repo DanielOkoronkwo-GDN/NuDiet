@@ -27,8 +27,13 @@ struct RecipeListView: View {
             ScrollView {
                 VStack {
                     if store.items.isEmpty {
-                        Text("No recipes available")
-                            .frame(maxWidth: .infinity, alignment: .center)
+                        if store.isLoading {
+                            ProgressView()
+                                .tint(.accent)
+                        } else {
+                            Text("No recipes available")
+                                .frame(maxWidth: .infinity, alignment: .center)
+                        }
                     } else {
                         LazyVGrid(columns: columns, spacing: 16) {
                             ForEach(store.items) { recipe in
