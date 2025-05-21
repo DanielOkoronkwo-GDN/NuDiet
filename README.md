@@ -1,19 +1,22 @@
-# NuDiet
+## NuDiet iOS App (Based on [DummyJSON](https://dummyjson.com/docs/recipes))
 
-**Future enhancements**
+### Architecture:
+- [Swift Composible Architecture](https://github.com/pointfreeco/swift-composable-architecture) 
 
-SwiftData Integration: To enhance the architecture and user experience, integrating SwiftData alongside The Composable Architecture (TCA) would be more ideal as currently saved in memory. This approach enables efficient local filtering and lookup of recipes based on user-defined criteria such as tags and other filters.
-
-Note: As not all recipes may be retrieved initially, certain filter combinations may yield partial results until the complete dataset is available.
-
-Others include: Search functinality by (tags, chef name, recipe name)
-
-**Areas more work can be done:** Unit test coverage, Snapshot testing (Prefire is a good choice), enhanced accessibility.
-
-SPM Packages: 
+### SPM Packages: 
 - Kingfisher for UI image caching and handling
 - Switch Composable architecture
 - ClientDomain (Local): Includes dummyclient service integration and TCA layer
+
+### Improvements (If more time permitted):
+More test coverage, Snapshot testing (Prefire is a good choice), enhanced accessibility.
+### Future enhancements
+
+**SwiftData Integration:** To enhance the architecture and user experience, integrating SwiftData alongside The Composable Architecture (TCA) would be more ideal as currently saved in memory. This approach enables efficient local filtering and lookup of recipes based on user-defined criteria such as tags and other filters.
+
+Note: As not all recipes may be retrieved initially, certain filter combinations may yield partial results until the complete dataset is available.
+
+**Others include:** Search functinality by (tags, chef name, recipe name)
 
 | Home | Filter| Detail |
 | --- | --- | --- |
