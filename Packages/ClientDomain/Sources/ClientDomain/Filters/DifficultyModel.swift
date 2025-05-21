@@ -24,7 +24,7 @@ public enum difficultyLevel: String, CaseIterable {
 
 /// Model representing a single difficulty filter option.
 @Observable
-public class DifficultyModel: Identifiable, Hashable {
+public class DifficultyModel: @unchecked Sendable, Identifiable, Hashable {
 
     public var isSelected: Bool = false /// Indicates whether this difficulty is currently selected in the filter.
     public var difficulty: difficultyLevel  /// The difficulty level associated with this model.
@@ -42,4 +42,12 @@ public class DifficultyModel: Identifiable, Hashable {
         hasher.combine(difficulty.rawValue)
         hasher.combine(isSelected)
     }
+}
+
+public extension DifficultyModel {
+    static let `defaultCollection` = [
+        DifficultyModel(isSelected: false, difficulty: .easy),
+        DifficultyModel(isSelected: false, difficulty: .medium),
+        DifficultyModel(isSelected: false, difficulty: .hard)
+    ]
 }

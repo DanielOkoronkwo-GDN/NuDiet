@@ -11,10 +11,10 @@ import Foundation
 @Observable
 public class RatingModel: Equatable {
     
-    var isActive: Bool /// Indicates whether the rating filter is active.
-    var value: Double? /// Optional value of the rating (e.g., 4.5 stars).
+    public var isActive: Bool /// Indicates whether the rating filter is active.
+    public var value: Double /// Optional value of the rating (e.g., 4.5 stars).
     
-    init(isActive: Bool, value: Double? = nil) {
+    public init(isActive: Bool, value: Double = 0) {
         self.isActive = isActive
         self.value = value
     }

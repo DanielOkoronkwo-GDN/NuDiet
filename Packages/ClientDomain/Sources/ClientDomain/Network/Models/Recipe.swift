@@ -116,20 +116,20 @@ public extension Recipe {
             "Italian"
         ],
         image: "https://cdn.dummyjson.com/recipe-images/1.webp",
-        rating: 4.6,
+        rating: 4.8,
         reviewCount: 98,
         mealType: ["Dinner"]
     )
     
     static let sampleTwo = Recipe(
-        id: 1,
-        name: "Classic Margherita Pizza",
+        id: 2,
+        name: "Classic Margherita",
         ingredients: nil,
         instructions: nil,
         prepTimeMinutes: 20,
         cookTimeMinutes: 15,
         servings: 4,
-        difficulty: nil,
+        difficulty: "Medium",
         cuisine: "Italian",
         caloriesPerServing: 300,
         tags: [

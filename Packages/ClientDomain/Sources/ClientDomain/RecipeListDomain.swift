@@ -18,26 +18,30 @@ public struct RecipeListDomain : Sendable {
     public struct State: Equatable {
 
         var allItems: [Recipe] = []             // All fetched recipes (unfiltered source of truth)
-        var currentPage = 1                     // Current page index for pagination
-        var pageSize = 5                        // Number of items per page
-        var isLoading = false                   // Whether a fetch operation is in progress
-        var hasMorePages = true                 // If there are more pages to fetch
+        var currentPage: Int                     // Current page index for pagination
+        var pageSize: Int                      // Number of items per page
+        var isLoading: Bool                   // Whether a fetch operation is in progress
+        var hasMorePages: Bool                 // If there are more pages to fetch
         var errorMessage: String? = nil         // Error message to show in UI
         
         public var selectedRecipe: Recipe? = nil       // Currently selected recipe (for detail view)
         public var items: [Recipe] = []                // Filtered recipes to display
         public var filterModel: FilterModel = FilterModel() // Model holding active filters (difficulty, rating)
         
-        public init(items: [Recipe] = [],
+        public init(allItems: [Recipe] = [],
+                    items: [Recipe] = [],
                     currentPage: Int = 1,
                     pageSize: Int = 5,
                     isLoading: Bool = false,
-                    hasMorePages: Bool = true) {
+                    hasMorePages: Bool = true,
+                    filterModel: FilterModel = FilterModel() ) {
+            self.allItems = allItems
             self.items = items
             self.currentPage = currentPage
             self.pageSize = pageSize
             self.isLoading = isLoading
             self.hasMorePages = hasMorePages
+            self.filterModel = filterModel
         }
     }
     
@@ -60,8 +64,7 @@ public struct RecipeListDomain : Sendable {
         
         // Filter-related
         case clearFilter
-        case applyFilter
-        case updateRating(rating: Double)
+        case applyFilter(filter: FilterModel)
     }
     
     public func reduce(into state: inout State, action: Action) -> Effect<Action> {
@@ -71,23 +74,28 @@ public struct RecipeListDomain : Sendable {
             let selectedDifficulty = state.filterModel.difficultyLevels
                 .filter { $0.isSelected }
                 .map { $0.difficulty.rawValue.capitalized }
-            
+
             return recipes.filter { recipe in
-                // Difficulty matching (default to Easy if missing)
-                let difficultyMatches = selectedDifficulty.isEmpty ||
-                selectedDifficulty.contains(recipe.difficulty?.capitalized ?? "Easy")
-                
-                // Rating filtering
+                // Skip difficulty check if no filters selected
+                let difficultyMatches: Bool
+                if selectedDifficulty.isEmpty {
+                    difficultyMatches = true
+                } else if let difficulty = recipe.difficulty?.capitalized {
+                    difficultyMatches = selectedDifficulty.contains(difficulty)
+                } else {
+                    // difficulty is nil and filters are active → exclude this recipe
+                    difficultyMatches = false
+                }
+
+                // Rating check with minimum rating logic
                 let ratingFilter = state.filterModel.rating
                 let ratingMatches: Bool
-                if ratingFilter.isActive,
-                   let filterValue = ratingFilter.value,
-                   let recipeRating = recipe.rating {
-                    ratingMatches = recipeRating <= filterValue
+                if ratingFilter.isActive, let recipeRating = recipe.rating {
+                    ratingMatches = ratingFilter.value.isGreaterThanOrEqualTo(recipeRating)
                 } else {
                     ratingMatches = true
                 }
-                
+
                 return difficultyMatches && ratingMatches
             }
         }
@@ -140,7 +148,8 @@ public struct RecipeListDomain : Sendable {
             state.selectedRecipe = nil
             return .none
             
-        case .applyFilter:
+        case .applyFilter(let filter):
+            state.filterModel = filter
             state.items = applyFilter(recipes: state.allItems)
             return .none
             
@@ -149,11 +158,14 @@ public struct RecipeListDomain : Sendable {
             state.filterModel = FilterModel()
             state.items = applyFilter(recipes: allItemsCopy)
             return .none
-            
-        case .updateRating(let rating):
-            state.filterModel.rating = RatingModel(isActive: true, value: rating)
-            state.items = applyFilter(recipes: state.allItems)
-            return .none
         }
+    }
+}
+
+
+extension Double {
+    /// Safe comparison for floating-point numbers to account for rounding errors.    
+    func isGreaterThanOrEqualTo(_ other: Double, epsilon: Double = 0.0001) -> Bool {
+        return self + epsilon >= other
     }
 }
