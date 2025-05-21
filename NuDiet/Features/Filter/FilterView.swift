@@ -14,7 +14,7 @@ struct FilterView: View {
     @State private var isEditing = false
     
     @State private var rating: Double = 0.0
-    @State private var filter: FilterModel = FilterModel()
+    @State private var filter: FilterModel = .init()
     
     @Environment(\.dismiss) var dismiss
     
@@ -68,7 +68,7 @@ struct FilterView: View {
             .foregroundStyle(.gray)
             .fontWeight(filter.difficultyLevels.filter({ $0.isSelected }).isEmpty == false ? .bold : .medium)
         HStack {
-            ForEach(filter.difficultyLevels) { model in
+            ForEach($filter.difficultyLevels) { model in
                 DifficultyFilterView(model: model)
                     .frame(maxWidth: .infinity)
             }
@@ -102,12 +102,17 @@ struct FilterView: View {
         .tint(.blue.opacity(0.4))
     }
     
+    private func triggerClearOperation() {
+        filter.difficultyLevels.forEach({ $0.isSelected = false })
+        store.send(.clearFilter)
+        dismiss()
+    }
+    
     @ViewBuilder
     var bottomContainer: some View {
         HStack {
             Button {
-                store.send(.clearFilter)
-                dismiss()
+                triggerClearOperation()
             } label: {
                 Text("Clear")
                     .fontWeight(.bold)
@@ -153,12 +158,4 @@ struct FilterView: View {
     ) {
         RecipeListDomain()
     })
-}
-
-
-extension Double {
-    func round(to places: Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
 }
