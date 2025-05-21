@@ -1,6 +1,6 @@
 # NuDiet
 
-**Room for improvement listed below:**
+**Future enhancements**
 
 SwiftData Integration: To enhance the architecture and user experience, integrating SwiftData alongside The Composable Architecture (TCA) would be more ideal as currently saved in memory. This approach enables efficient local filtering and lookup of recipes based on user-defined criteria such as tags and other filters.
 
@@ -8,7 +8,7 @@ Note: As not all recipes may be retrieved initially, certain filter combinations
 
 Others include: Search functinality by (tags, chef name, recipe name)
 
-Areas more work can be done: Unit test coverage, Snapshot testing (Prefire is a good choice), enhanced accessibility.
+**Areas more work can be done:** Unit test coverage, Snapshot testing (Prefire is a good choice), enhanced accessibility.
 
 SPM Packages: 
 - Kingfisher for UI image caching and handling
