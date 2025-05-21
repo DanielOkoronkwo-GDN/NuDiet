@@ -6,12 +6,14 @@ SwiftData Integration: To enhance the architecture and user experience, integrat
 
 Note: As not all recipes may be retrieved initially, certain filter combinations may yield partial results until the complete dataset is available.
 
-Search functinality, summarized filter UI at the top of screen, more sufficient unit test coverage, accesibility enhancements
+Others include: Search functinality by (tags, chef name, recipe name)
+
+Areas more work can be done: Unit test coverage, Snapshot testing (Prefire is a good choice), enhanced accessibility.
 
 SPM Packages: 
 - Kingfisher for UI image caching and handling
 - Switch Composable architecture
-- ClientDomain: Includes dummyclient service integration and TCA layer
+- ClientDomain (Local): Includes dummyclient service integration and TCA layer
 
 | Home | Filter| Detail |
 | --- | --- | --- |
