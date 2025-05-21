@@ -12,7 +12,9 @@ import ClientDomain
 struct FilterView: View {
         
     @State private var isEditing = false
+    
     @State private var rating: Double = 0.0
+    @State private var filter: FilterModel = FilterModel()
     
     @Environment(\.dismiss) var dismiss
     
@@ -66,7 +68,7 @@ struct FilterView: View {
             .foregroundStyle(.gray)
             .fontWeight(.medium)
         HStack {
-            ForEach(store.filterModel.difficultyLevels) { model in
+            ForEach(filter.difficultyLevels) { model in
                 DifficultyFilterView(model: model)
                     .frame(maxWidth: .infinity)
             }
@@ -75,12 +77,12 @@ struct FilterView: View {
     
     @ViewBuilder
     var ratingsContainer: some View {
-        Text("Minimum rating: \(String(format: "%.2f", rating))")
+        Text("Minimum rating: \(String(format: "%.2f", filter.rating.value))")
             .fontWeight(.medium)
             .foregroundStyle(.gray)
         
         Slider(
-            value: $rating,
+            value: $filter.rating.value,
             in: 1...5,
             step: 0.2
         ) {
@@ -91,8 +93,8 @@ struct FilterView: View {
         } maximumValueLabel: {
             Text("5")
                 .foregroundStyle(.gray)
-        }.onChange(of: rating) { _, newValue in
-            store.send(.updateRating(rating: newValue))
+        }.onChange(of: filter.rating.value) { _, newValue in
+            filter.rating.isActive = true
         }.tint(.blue.opacity(0.4))
     }
     
@@ -117,7 +119,7 @@ struct FilterView: View {
             )
 
             Button {
-                store.send(.applyFilter)
+                store.send(.applyFilter(filter: filter))
             } label: {
                 Text("Apply")
                     .fontWeight(.bold)
@@ -131,7 +133,6 @@ struct FilterView: View {
                 )
                 .fill(Color.green.opacity(0.8))
             )
-                    
         }
     }
 }

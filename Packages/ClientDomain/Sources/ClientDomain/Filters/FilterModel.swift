@@ -13,14 +13,16 @@ import SwiftUI
 public class FilterModel: Equatable {
     
     /// List of difficulty filter options (easy, medium, hard).
-    public var difficultyLevels: [DifficultyModel] = [
-        DifficultyModel(isSelected: false, difficulty: .easy),
-        DifficultyModel(isSelected: false, difficulty: .medium),
-        DifficultyModel(isSelected: false, difficulty: .hard)
-    ]
+    public var difficultyLevels: [DifficultyModel]
     
     /// Rating filter option, allows filtering based on a rating value.
     public var rating: RatingModel = RatingModel(isActive: false)
+    
+    public init(difficultyLevels: [DifficultyModel] = DifficultyModel.defaultCollection,
+                rating: RatingModel = RatingModel(isActive: false)) {
+        self.difficultyLevels = difficultyLevels
+        self.rating = rating
+    }
     
     public static func == (lhs: FilterModel, rhs: FilterModel) -> Bool {
         lhs.difficultyLevels == rhs.difficultyLevels &&
