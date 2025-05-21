@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  PaginatedResponse+Extension.swift
 //  ClientDomain
 //
 //  Created by Daniel Okoronkwo on 21/05/2025.
