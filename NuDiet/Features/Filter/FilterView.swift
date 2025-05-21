@@ -66,7 +66,7 @@ struct FilterView: View {
     var difficultyContainer: some View {
         Text("Difficulty")
             .foregroundStyle(.gray)
-            .fontWeight(.medium)
+            .fontWeight(filter.difficultyLevels.filter({ $0.isSelected }).isEmpty == false ? .bold : .medium)
         HStack {
             ForEach(filter.difficultyLevels) { model in
                 DifficultyFilterView(model: model)
@@ -78,7 +78,7 @@ struct FilterView: View {
     @ViewBuilder
     var ratingsContainer: some View {
         Text("Minimum rating: \(String(format: "%.2f", filter.rating.value))")
-            .fontWeight(.medium)
+            .fontWeight(filter.rating.isActive ? .bold : .medium)
             .foregroundStyle(.gray)
         
         Slider(
@@ -90,12 +90,16 @@ struct FilterView: View {
         } minimumValueLabel: {
             Text("0")
                 .foregroundStyle(.gray)
+                .fontWeight(filter.rating.isActive ? .bold : .medium)
         } maximumValueLabel: {
             Text("5")
                 .foregroundStyle(.gray)
-        }.onChange(of: filter.rating.value) { _, newValue in
+                .fontWeight(filter.rating.isActive ? .bold : .medium)
+        }
+        .onChange(of: filter.rating.value) { _, newValue in
             filter.rating.isActive = true
-        }.tint(.blue.opacity(0.4))
+        }
+        .tint(.blue.opacity(0.4))
     }
     
     @ViewBuilder
