@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "C070C0BB-9614-43A1-9B3F-3A0DD176A2E2",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:NuDiet.xcodeproj",
+      "identifier" : "2B3669A02DD4C6860090FAF0",
+      "name" : "NuDiet"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NuDiet.xcodeproj",
+        "identifier" : "2B3669B02DD4C6890090FAF0",
+        "name" : "NuDietTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:NuDiet.xcodeproj",
+        "identifier" : "2B3669BA2DD4C6890090FAF0",
+        "name" : "NuDietUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -9,16 +9,22 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct RecipeDetailDomain {
+public struct RecipeDetailDomain {
+    
+    public init() {}
     
     @ObservableState
-    struct State: Equatable {
+    public struct State: Equatable {
         let recipe: Recipe
+        
+        public init(recipe: Recipe) {
+            self.recipe = recipe
+        }
     }
     
 }
 
-extension RecipeDetailDomain.State {
+public extension RecipeDetailDomain.State {
     
     var cookTimeString: String {
         if let cookTimeMinutes = recipe.cookTimeMinutes {

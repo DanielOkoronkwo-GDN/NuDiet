@@ -6,8 +6,28 @@
 	<dict>
 		<key>NuDiet.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2B3669A02DD4C6860090FAF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B3669B02DD4C6890090FAF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2B3669BA2DD4C6890090FAF0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

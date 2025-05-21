@@ -9,19 +9,26 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct RecipeCardDomain {
+public struct RecipeCardDomain {
+    
+    public init() {}
     
     @ObservableState
-    struct State: Equatable, Identifiable {
-        let id: Int
+    public struct State: Equatable, Identifiable {
+        public let id: Int
         let recipe: Recipe
+        
+        public init(id: Int, recipe: Recipe) {
+            self.id = id
+            self.recipe = recipe
+        }
     }
     
-    enum Action: Equatable {
+    public enum Action: Equatable {
         case recipeTapped
     }
     
-    func reduce(into state: inout State, action: Action) -> Effect<Action> {
+    public func reduce(into state: inout State, action: Action) -> Effect<Action> {
         switch action {
         case .recipeTapped:
             return .none
@@ -29,7 +36,7 @@ struct RecipeCardDomain {
     }
 }
 
-extension RecipeCardDomain.State {
+public extension RecipeCardDomain.State {
     
     var cookTimeString: String {
         if let cookTimeMinutes = recipe.cookTimeMinutes {

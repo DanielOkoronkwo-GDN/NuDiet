@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B366BD22DD66ECB0090FAF0 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 2B366BD12DD66ECB0090FAF0 /* ComposableArchitecture */; };
+		2B9F761E2DDDB33F004E6A50 /* ClientDomain in Frameworks */ = {isa = PBXBuildFile; productRef = 2B9F761D2DDDB33F004E6A50 /* ClientDomain */; };
 		2BE7E1002DDA5F17001066DA /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 2BE7E0FF2DDA5F17001066DA /* Kingfisher */; };
 /* End PBXBuildFile section */
 
@@ -32,9 +33,25 @@
 		2B3669A12DD4C6860090FAF0 /* NuDiet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NuDiet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3669B12DD4C6890090FAF0 /* NuDietTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NuDietTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B3669BB2DD4C6890090FAF0 /* NuDietUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NuDietUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B5C59072DDDAC970059B5C9 /* ClientDomain */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = ClientDomain; sourceTree = "<group>"; };
+		2B90C5F82DDD3193009A9F94 /* NuDiet.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = NuDiet.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		2B90C5F62DDD2833009A9F94 /* Exceptions for "NuDietTests" folder in "NuDietTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NuDietTests.swift,
+			);
+			target = 2B3669B02DD4C6890090FAF0 /* NuDietTests */;
+		};
+		2B90C5F72DDD28A7009A9F94 /* Exceptions for "NuDietTests" folder in "NuDiet" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NuDietTests.swift,
+			);
+			target = 2B3669A02DD4C6860090FAF0 /* NuDiet */;
+		};
 		2BD79BCD2DDA72F500DF840F /* Exceptions for "NuDiet" folder in "NuDiet" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -45,11 +62,6 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		2B3669B42DD4C6890090FAF0 /* NuDietTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = NuDietTests;
-			sourceTree = "<group>";
-		};
 		2B3669BE2DD4C6890090FAF0 /* NuDietUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = NuDietUITests;
@@ -63,6 +75,15 @@
 			path = NuDiet;
 			sourceTree = "<group>";
 		};
+		2B90C5F02DDD27EE009A9F94 /* NuDietTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				2B90C5F72DDD28A7009A9F94 /* Exceptions for "NuDietTests" folder in "NuDiet" target */,
+				2B90C5F62DDD2833009A9F94 /* Exceptions for "NuDietTests" folder in "NuDietTests" target */,
+			);
+			path = NuDietTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B9F761E2DDDB33F004E6A50 /* ClientDomain in Frameworks */,
 				2BE7E1002DDA5F17001066DA /* Kingfisher in Frameworks */,
 				2B366BD22DD66ECB0090FAF0 /* ComposableArchitecture in Frameworks */,
 			);
@@ -95,9 +117,12 @@
 		2B3669982DD4C6860090FAF0 = {
 			isa = PBXGroup;
 			children = (
+				2B90C5F82DDD3193009A9F94 /* NuDiet.xctestplan */,
+				2B5C59082DDDAC970059B5C9 /* Packages */,
 				2B366C2E2DD718EB0090FAF0 /* NuDiet */,
-				2B3669B42DD4C6890090FAF0 /* NuDietTests */,
+				2B90C5F02DDD27EE009A9F94 /* NuDietTests */,
 				2B3669BE2DD4C6890090FAF0 /* NuDietUITests */,
+				2B9F761C2DDDB33F004E6A50 /* Frameworks */,
 				2B3669A22DD4C6860090FAF0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +135,21 @@
 				2B3669BB2DD4C6890090FAF0 /* NuDietUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		2B5C59082DDDAC970059B5C9 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				2B5C59072DDDAC970059B5C9 /* ClientDomain */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		2B9F761C2DDDB33F004E6A50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,11 +169,13 @@
 			);
 			fileSystemSynchronizedGroups = (
 				2B366C2E2DD718EB0090FAF0 /* NuDiet */,
+				2B90C5F02DDD27EE009A9F94 /* NuDietTests */,
 			);
 			name = NuDiet;
 			packageProductDependencies = (
 				2B366BD12DD66ECB0090FAF0 /* ComposableArchitecture */,
 				2BE7E0FF2DDA5F17001066DA /* Kingfisher */,
+				2B9F761D2DDDB33F004E6A50 /* ClientDomain */,
 			);
 			productName = NuDiet;
 			productReference = 2B3669A12DD4C6860090FAF0 /* NuDiet.app */;
@@ -151,9 +193,6 @@
 			);
 			dependencies = (
 				2B3669B32DD4C6890090FAF0 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				2B3669B42DD4C6890090FAF0 /* NuDietTests */,
 			);
 			name = NuDietTests;
 			packageProductDependencies = (
@@ -200,6 +239,7 @@
 					};
 					2B3669B02DD4C6890090FAF0 = {
 						CreatedOnToolsVersion = 16.2;
+						LastSwiftMigration = 1620;
 						TestTargetID = 2B3669A02DD4C6860090FAF0;
 					};
 					2B3669BA2DD4C6890090FAF0 = {
@@ -422,6 +462,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NuDiet/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NuDiet/Info.plist;
@@ -429,6 +470,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,6 +492,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NuDiet/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NuDiet/Info.plist;
@@ -457,6 +500,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -474,6 +518,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -482,6 +527,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.danokoronkwo.appdaily.NuDietTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NuDiet.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/NuDiet";
@@ -492,6 +538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -603,6 +650,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2B366BD02DD66ECB0090FAF0 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		2B9F761D2DDDB33F004E6A50 /* ClientDomain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ClientDomain;
 		};
 		2BE7E0FF2DDA5F17001066DA /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;

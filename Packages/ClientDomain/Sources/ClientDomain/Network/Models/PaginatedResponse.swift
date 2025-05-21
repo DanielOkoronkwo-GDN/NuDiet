@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PaginatedResponse: Decodable, Equatable {
+public struct PaginatedResponse: Decodable, Equatable {
     var recipes: [Recipe]
     var total: Int
     var skip: Int

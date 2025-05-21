@@ -8,10 +8,10 @@
 import Foundation
 import SwiftUI
 
-enum difficultyLevel: String, CaseIterable {
+public enum difficultyLevel: String, CaseIterable {
     case easy, medium, hard
     
-    var color: Color {
+    public var color: Color {
         switch self {
         case .easy: .green
         case .medium: .orange
@@ -21,46 +21,45 @@ enum difficultyLevel: String, CaseIterable {
 }
 
 @Observable
-class DifficultyModel: Identifiable, Hashable {
+public class DifficultyModel: Identifiable, Hashable {
 
-    var isSelected: Bool = false
-    var difficulty: difficultyLevel
+    public var isSelected: Bool = false
+    public var difficulty: difficultyLevel
     
-    init(isSelected: Bool, difficulty: difficultyLevel) {
+    public init(isSelected: Bool, difficulty: difficultyLevel) {
         self.isSelected = isSelected
         self.difficulty = difficulty
     }
     
-    static func == (lhs: DifficultyModel, rhs: DifficultyModel) -> Bool {
+    public static func == (lhs: DifficultyModel, rhs: DifficultyModel) -> Bool {
         lhs.difficulty == rhs.difficulty && lhs.isSelected == rhs.isSelected
     }
     
-    func hash(into hasher: inout Hasher) {
+    public func hash(into hasher: inout Hasher) {
         hasher.combine(difficulty.rawValue)
         hasher.combine(isSelected)
     }
 }
 
 @Observable
-class FilterModel: Equatable {
+public class FilterModel: Equatable {
     
-    var difficultyLevels: [DifficultyModel] = [
+    public var difficultyLevels: [DifficultyModel] = [
         DifficultyModel(isSelected: false, difficulty: .easy),
         DifficultyModel(isSelected: false, difficulty: .medium),
         DifficultyModel(isSelected: false, difficulty: .hard)
     ]
     
- 
-    var rating: RatingModel = RatingModel(isActive: false)
+    public var rating: RatingModel = RatingModel(isActive: false)
     
-    static func == (lhs: FilterModel, rhs: FilterModel) -> Bool {
+    public static func == (lhs: FilterModel, rhs: FilterModel) -> Bool {
         lhs.difficultyLevels == rhs.difficultyLevels &&
         lhs.rating == rhs.rating
     }
 }
 
 @Observable
-class RatingModel: Equatable {
+public class RatingModel: Equatable {
     var isActive: Bool
     var value: Double?
     
@@ -69,7 +68,7 @@ class RatingModel: Equatable {
         self.value = value
     }
     
-    static func == (lhs: RatingModel, rhs: RatingModel) -> Bool {
+    public static func == (lhs: RatingModel, rhs: RatingModel) -> Bool {
         lhs.value == rhs.value
     }
 }
