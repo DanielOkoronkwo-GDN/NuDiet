@@ -11,7 +11,7 @@ import ClientDomain
 
 struct DifficultyFilterView: View {
     
-    @State var model: DifficultyModel
+    @Binding var model: DifficultyModel
     
     var body: some View {
         Button {
@@ -29,5 +29,5 @@ struct DifficultyFilterView: View {
 }
 
 #Preview {
-    DifficultyFilterView(model: DifficultyModel(isSelected: false, difficulty: .easy))
+    DifficultyFilterView(model: .constant(DifficultyModel(isSelected: false, difficulty: .easy)))
 }

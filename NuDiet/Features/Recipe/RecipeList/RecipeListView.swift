@@ -29,6 +29,7 @@ struct RecipeListView: View {
                     if store.items.isEmpty {
                         if store.isLoading {
                             ProgressView()
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .tint(.accent)
                         } else {
                             Text("No recipes available")
